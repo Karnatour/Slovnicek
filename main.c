@@ -4,31 +4,32 @@
 int main() {
     init();
     int choice;
-    int unit;
+    char unit[3];
+    char cz[20];
+    char en[20];
     boolean loop = TRUE;
     do {
-        printf("1. Zalozi novou lekci\n"
-               "2. Prida nove slovo\n"
-               "3. Prekladac\n"
-               "4. Zkouseni\n"
-               "5. Edit slova\n"
-               "6. Ukonceni programu\n");
+        printf("1. Prida nove slovo\n"
+               "2. Prekladac\n"
+               "3. Zkouseni\n"
+               "4. Edit slova\n"
+               "5. Ukonceni programu\n");
         scanf_s("%d", &choice);
         switch (choice) {
             case 1:
                 system("cls");
-                printf("Zadejte cislo lekce\n");
-                scanf_s("%d", &unit);
-                createUnit(unit);
+                loadDictionary();
+                printf("Zadejte slovo ve tvaru lekce,cz,en\n");
+                scanf_s("%s", &unit);
+                scanf_s("%s", &cz);
+                scanf_s("%s", &en);
+                saveWord(unit,cz,en);
+                memset(unit,0,sizeof unit);
+                memset(cz,0,sizeof cz);
+                memset(en,0,sizeof en);
+                system("cls");
                 break;
             case 2:
-                system("cls");
-                printf("Zadejte cislo lekce\n");
-                scanf_s("%d", &unit);
-                saveWord(unit);
-                system("cls");
-                break;
-            case 3:
                 system("cls");
                 printf("Vyberte mód\n"
                        "1. CZ->EN\n"
@@ -44,12 +45,11 @@ int main() {
                         printf("Tato moznost neexistuje\n");
                         break;
                 }
+            case 3:
                 break;
             case 4:
                 break;
             case 5:
-                break;
-            case 6:
                 loop = FALSE;
                 break;
             default:

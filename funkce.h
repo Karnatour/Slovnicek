@@ -11,13 +11,10 @@
 #include <windows.h>
 #include <ctype.h>
 
-void assemblePath(char* buffer,int number,int mode);
-
-void createUnit(int number);
-void createFile(int number);
-void createFolder(int number);
-void saveWord(int number);
+void saveWord(char* number,char* cz,char* en);
 void convertToSmall(char* word);
-void loadUnit(int number,char* path);
+char* loadDictionary();
+int fileLength();
+void compareDictionary(char* ptrDict,char* word);
 
 #endif //SLOVNICEK_FUNKCE_H

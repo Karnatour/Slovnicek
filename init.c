@@ -6,10 +6,19 @@
 
 void init(){
     initFolder();
+    initFile();
 }
 
 void initFolder() {
-    if (!CreateDirectory("lekce", NULL)){
+    if (!CreateDirectory("slovicka", NULL)){
         return;
     }
 }
+
+void initFile(){
+    FILE* file;
+    fopen_s(&file,"slovicka/words.txt","a");
+    fclose(file);
+}
+
+
