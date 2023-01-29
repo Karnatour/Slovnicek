@@ -11,10 +11,10 @@
 #include <windows.h>
 #include <ctype.h>
 
-void saveWord(char* number,char* cz,char* en);
+void saveWord(int number,char* cz,char* en);
 void convertToSmall(char* word);
 char* loadDictionary();
 int fileLength();
-void compareDictionary(char* ptrDict,char* word);
-
+int compareDictionary(char* ptrDict,char* cz,char* en);
+void translate(int mode,char *cz, char *en);
 #endif //SLOVNICEK_FUNKCE_H
