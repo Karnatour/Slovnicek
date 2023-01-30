@@ -1,3 +1,5 @@
+#pragma clang diagnostic push
+#pragma ide diagnostic ignored "cert-err34-c"
 #include "funkce.h"
 #include "init.h"
 
@@ -28,9 +30,6 @@ int main() {
                 scanf(" %19[^\n]", &cz);
                 scanf(" %19[^\n]", &en);
                 saveWord(unit, cz, en);
-                unit = 0;
-                memset(cz, 0, sizeof cz);
-                memset(en, 0, sizeof en);
                 system("cls");
                 break;
             case 2:
@@ -62,11 +61,28 @@ int main() {
                         break;
                     default:
                         printf("Tato moznost neexistuje\n");
+                        system("pause");
                         break;
                 }
                 system("cls");
                 break;
             case 3:
+                system("cls");
+                printf("1. Zkouseni z jedne lekce\n"
+                       "2. Zkouseni z celeho slovniku\n");
+                scanf("%d",&choice);
+                switch (choice) {
+                    case 1:
+                        printf("Zadejte cislo lekce\n");
+                        scanf("%d",&unit);
+                        testUnit(unit);
+                        break;
+                    case 2:
+                        break;
+                    default:
+                        printf("Tato moznost neexistuje\n");
+                        break;
+                }
                 break;
             case 4:
                 break;
@@ -80,3 +96,5 @@ int main() {
     } while (loop == TRUE);
     return 0;
 }
+
+#pragma clang diagnostic pop
